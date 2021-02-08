@@ -1,0 +1,17 @@
+.movie-list {
+    border: 2px solid salmon;
+    width: 20%;
+    padding: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.noStyle {
+    display: none;
+}
+
+.movie-wrapper {
+    margin: 10vh 10vw;
+}

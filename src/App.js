@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useState } from 'react';
+import Movie from './Movie';
 
 function App() {
+
+  const [movies, setMovies] = useState([])
+
+  const getMovies = () => {
+    fetch(`http://localhost:2004/movie/allMovies`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setMovies(data);
+      })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Movie movies={movies} getMovies={getMovies} />
     </div>
   );
 }
